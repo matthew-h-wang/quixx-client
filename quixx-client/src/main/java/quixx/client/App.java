@@ -5,14 +5,9 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-
-import quixx.client.views.CreateJoinScreenController;
 
 /**
  * JavaFX App
@@ -21,8 +16,9 @@ public class App extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private Node createJoinScreen;
+    private Node board;
     
-    
+
 
     public static void main(String[] args) {
         launch();
@@ -38,7 +34,7 @@ public class App extends Application {
             e.printStackTrace();
             return;
         }
-        rootLayout.setCenter(createJoinScreen);
+        rootLayout.setCenter(board);
         Scene scene = new Scene(rootLayout);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -52,11 +48,18 @@ public class App extends Application {
         rootLayout = (BorderPane) loader.load();
 
         //CreateJoinScreen
+        // loader = new FXMLLoader();
+        // loader.setLocation(App.class.getResource("views/CreateJoinScreen.fxml"));
+        // createJoinScreen = (Node) loader.load();
+        // CreateJoinScreenController createJoinScreenController = loader.getController();
+        // createJoinScreenController.setMainApp(this);
+
+        //CreateBoard
         loader = new FXMLLoader();
-        loader.setLocation(App.class.getResource("views/CreateJoinScreen.fxml"));
-        createJoinScreen = (Node) loader.load();
-        CreateJoinScreenController createJoinScreenController = loader.getController();
-        createJoinScreenController.setMainApp(this);
+        loader.setLocation(App.class.getResource("views/Board.fxml"));
+        board = (Node) loader.load();
+        BoardController boardController = loader.getController();
+        boardController.setMainApp(this);
     }
 
 

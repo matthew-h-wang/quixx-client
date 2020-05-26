@@ -3,7 +3,6 @@ package quixx.client.models;
 import java.util.regex.Pattern;
 
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextFormatter;
